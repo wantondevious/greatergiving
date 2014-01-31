@@ -43,12 +43,15 @@ input_file = csv.DictReader(args.infile)
 for row in input_file:
     gg_rows.append(row)
 
-sys.stderr.write("%d rows read from input.\n" % len(gg_rows))
+sys.stderr.write("%d rows read from %s.\n" % (len(gg_rows), args.infile.name))
 
 b4g_rows = map(convert_gg_to_b4g, gg_rows)
 
+i=0
 output_file = csv.DictWriter(args.outfile, b4g_header, extrasaction='ignore')
 output_file.writeheader()
 for row in b4g_rows:
+    i+=1
     output_file.writerow(row)
-    
+
+sys.stderr.write("%d rows written to %s.\n" % (i, args.outfile.name))
