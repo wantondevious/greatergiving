@@ -48,6 +48,7 @@ sys.stderr.write("%d rows read from input.\n" % len(gg_rows))
 b4g_rows = map(convert_gg_to_b4g, gg_rows)
 
 output_file = csv.DictWriter(args.outfile, b4g_header, extrasaction='ignore')
+output_file.writeheader()
 for row in b4g_rows:
     output_file.writerow(row)
     
