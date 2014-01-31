@@ -1,4 +1,5 @@
 greatergiving
 =============
 
-Tools to manage Greater Giving Auction Data
+Tools to manage Greater Giving Auction Data.
+
